@@ -24,6 +24,16 @@ class TestWatchVideo(Selectors):
     def test_watch_video(self):
         settings.setUp()
         settings.driver.get(self.url)
+
+
+        wait = WebDriverWait(settings.driver, 10)
+
+        image_visibility_confirmed = f'''
+            var img = document.querySelector('img[alt="{self.alt_text_product}"]');
+            return img && img.complete;
+            '''
+
+        wait.until(lambda driver: driver.execute_script(image_visibility_confirmed))
         
         element_to_hover = settings.driver.execute_script(
             f'return document.querySelector(\'img[alt="{self.alt_text_product}"]\')'
@@ -38,19 +48,16 @@ class TestWatchVideo(Selectors):
         expanded_view = settings.driver.execute_script(
             f'return document.getElementsByClassName("{self.view_element_class_name}")'
             )
-        
-
+    
         assert element_to_hover and expanded_view, "elements not visible"
 
         settings.driver.execute_script("arguments[0].click();", expanded_view[0])
 
         spin = settings.driver.find_element(By.CLASS_NAME, self.spinner)
 
-        wait = WebDriverWait(settings.driver, 10)
         spinner = wait.until(EC.presence_of_element_located((By.CLASS_NAME, self.spinner)))
 
         wait.until(EC.invisibility_of_element(spinner))
-
 
         assert not spin.is_displayed(), "spinner is still running"
 
