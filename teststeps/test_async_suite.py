@@ -36,11 +36,11 @@ class TestCredentials(Selectors):
 
 
         settings.driver.execute_script(f'''
-        document.getElementById("{self.username_field}").value = "wrongusername";
+        document.getElementById("{self.username_field}").value = "{self.github_username}";
     ''')
         
         settings.driver.execute_script(f'''
-        document.getElementById("{self.password_field}").value = "wrongpassword";
+        document.getElementById("{self.password_field}").value = "{self.github_password}";
     ''')
         
         login = settings.driver.execute_script(
@@ -54,12 +54,20 @@ class TestCredentials(Selectors):
 
                     setTimeout(function() {{
                     if (email === "{self.github_username}" && password === "{self.github_password}") {{
-                        callback("Authentication successful");
+                        alert("Login successful!");
+                        callback("Authentication successful");   
                     }} else {{
-                        callback("Authentication failed");
+                        alert("password or username incorrect");
+                        callback("Authentication failed");      
                     }}
                 }}, 2000);
             ''')
+        
+        alert = settings.driver.switch_to.alert
+
+        assert "Login successful" in alert.text
+
+        alert.accept()
         
         settings.driver.execute_script("arguments[0].click();", login[0])
 
