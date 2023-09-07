@@ -8,6 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 settings = Setting()
 
+driver = settings.driver
+
 
 
 class Selectors:
@@ -23,10 +25,10 @@ class Selectors:
 class TestWatchVideo(Selectors):
     def test_watch_video(self):
         settings.setUp()
-        settings.driver.get(self.url)
+        driver.get(self.url)
 
 
-        wait = WebDriverWait(settings.driver, 10)
+        wait = WebDriverWait(driver, 10)
 
         image_visibility_confirmed = f'''
             var img = document.querySelector('img[alt="{self.alt_text_product}"]');
@@ -35,25 +37,25 @@ class TestWatchVideo(Selectors):
 
         wait.until(lambda driver: driver.execute_script(image_visibility_confirmed))
         
-        element_to_hover = settings.driver.execute_script(
+        element_to_hover = driver.execute_script(
             f'return document.querySelector(\'img[alt="{self.alt_text_product}"]\')'
             )
         
-        settings.driver.execute_script("arguments[0].scrollIntoView();", element_to_hover)
+        driver.execute_script("arguments[0].scrollIntoView();", element_to_hover)
         
-        settings.driver.execute_script(
+        driver.execute_script(
             "arguments[0].dispatchEvent(new Event('mouseover', { bubbles: true }));", element_to_hover
             )
         
-        expanded_view = settings.driver.execute_script(
+        expanded_view = driver.execute_script(
             f'return document.getElementsByClassName("{self.view_element_class_name}")'
             )
     
         assert element_to_hover and expanded_view, "elements not visible"
 
-        settings.driver.execute_script("arguments[0].click();", expanded_view[0])
+        driver.execute_script("arguments[0].click();", expanded_view[0])
 
-        spin = settings.driver.find_element(By.CLASS_NAME, self.spinner)
+        spin = driver.find_element(By.CLASS_NAME, self.spinner)
 
         spinner = wait.until(EC.presence_of_element_located((By.CLASS_NAME, self.spinner)))
 
@@ -61,10 +63,10 @@ class TestWatchVideo(Selectors):
 
         assert not spin.is_displayed(), "spinner is still running"
 
-        video_player = settings.driver.find_element(By.CLASS_NAME, self.video_element)
+        video_player = driver.find_element(By.CLASS_NAME, self.video_element)
 
         assert video_player.is_enabled(), "Element not displayed"
 
-        settings.driver.execute_script("arguments[0].click();", video_player)
+        driver.execute_script("arguments[0].click();", video_player)
         
         settings.tearDown()

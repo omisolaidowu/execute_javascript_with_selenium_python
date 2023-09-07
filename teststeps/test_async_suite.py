@@ -4,12 +4,10 @@ from selenium.webdriver.common.by import By
 from setup.Setup import Setting
 import os
 from dotenv import load_dotenv
-
-
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 settings = Setting()
+driver = settings.driver
 
 load_dotenv('.env')
 
@@ -27,27 +25,27 @@ class Selectors:
 class TestCredentials(Selectors):
     def test_credentials(self):
         settings.setUp()
-        settings.driver.get(self.url)
+        driver.get(self.url)
 
-        page_title = settings.driver.title
+        page_title = driver.title
 
 
         assert "Sign in to GitHub" in page_title
 
 
-        settings.driver.execute_script(f'''
+        driver.execute_script(f'''
         document.getElementById("{self.username_field}").value = "{self.github_username}";
     ''')
         
-        settings.driver.execute_script(f'''
+        driver.execute_script(f'''
         document.getElementById("{self.password_field}").value = "{self.github_password}";
     ''')
         
-        login = settings.driver.execute_script(
+        login = driver.execute_script(
             f'return document.getElementsByClassName("{self.login_button}")'
             )
         
-        settings.driver.execute_async_script(f'''
+        driver.execute_async_script(f'''
                 var callback = arguments[arguments.length - 1];
                 var email = document.getElementById("{self.username_field}").value;
                 var password = document.getElementById("{self.password_field}").value;
@@ -63,17 +61,17 @@ class TestCredentials(Selectors):
                 }}, 2000);
             ''')
         
-        alert = settings.driver.switch_to.alert
+        alert = driver.switch_to.alert
 
         assert "Login successful" in alert.text
 
         alert.accept()
         
-        settings.driver.execute_script("arguments[0].click();", login[0])
+        driver.execute_script("arguments[0].click();", login[0])
 
-        settings.driver.current_url
+        driver.current_url
 
-        current_page_title = settings.driver.title
+        current_page_title = driver.title
 
         assert "Where software" in current_page_title
         
