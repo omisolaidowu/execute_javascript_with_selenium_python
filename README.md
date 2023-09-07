@@ -11,3 +11,6 @@ execute_javascript
    ├─ test_async_suite.py
    └─ test_suite.py
 ```
+
+## To run the test run:
+`pytest` via the command line
