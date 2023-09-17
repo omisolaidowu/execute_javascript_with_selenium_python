@@ -3,6 +3,7 @@ This test suite demonstrates how to execute JavaScript with Selenium in Python.
 ## Code Structure
 ```
 execute_javascript
+├─ .env
 ├─ .gitignore
 ├─ README.md
 ├─ setup
