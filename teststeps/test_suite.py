@@ -27,7 +27,6 @@ class TestWatchVideo(Selectors):
         settings.setUp()
         driver.get(self.url)
 
-
         wait = WebDriverWait(driver, 10)
 
         image_visibility_confirmed = f'''

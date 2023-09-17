@@ -19,7 +19,7 @@ lt_options["w3c"] = True
 lt_options["plugin"] = "python-python"
 options.set_capability('LT:Options', lt_options)
 
-gridURL = "https://{}:{}@hub.lambdatest.com/wd/hub".format(LT_USERNAME, LT_ACCESS_KEY)
+gridURL = f"https://{LT_USERNAME}:{LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub"
 
 
 class Setting:    
