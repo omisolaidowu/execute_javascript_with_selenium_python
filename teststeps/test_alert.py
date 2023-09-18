@@ -7,7 +7,7 @@ sys.path.append(sys.path[0] + "/..")
 from setup.Setup import Setting
 
 setting = Setting()
-class SimulateAlert:
+class TestSimulateAlert:
     def test_should_alert_user_and_fail_if_email_exists(self):
         setting.setUp()
         url = "https://signup.sendgrid.com/"
