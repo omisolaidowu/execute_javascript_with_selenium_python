@@ -1,6 +1,6 @@
 import sys
 sys.path.append(sys.path[0] + "/..")
-from setup.Setup_ini import Setting
+from setup.Setup import Setting
 setting = Setting()
 
 class TestStyleChange:
