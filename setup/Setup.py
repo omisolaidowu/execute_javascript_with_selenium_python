@@ -11,12 +11,13 @@ options.platform_name = "Windows 10"
 lt_options = {}
 lt_options["username"] = os.getenv("LT_USERNAME")
 lt_options["accessKey"] = os.getenv("LT_ACCESS_KEY")
-lt_options["build"] = "e-commerce and dropdown use cases"
+lt_options["build"] = "JavaScript execution demos"
 lt_options["project"] = "Elements Check Tests"
-lt_options["name"] = "E-commerce and dropdown tests"
+lt_options["name"] = "JavaScript demo"
 lt_options["console"] = "error"
 lt_options["w3c"] = True
 lt_options["plugin"] = "python-python"
+
 options.set_capability('LT:Options', lt_options)
 
 gridURL = f"https://{LT_USERNAME}:{LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub"
