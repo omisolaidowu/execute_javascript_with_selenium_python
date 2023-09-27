@@ -36,7 +36,7 @@ class TestCredentials(Selectors):
     ''')
         
         
-        driver.execute_async_script(f'''
+        script =f'''
                 var callback = arguments[arguments.length - 1];
                 var email = document.getElementById("{self.username_field}").value;
                 var password = document.getElementById("{self.password_field}").value;
@@ -50,7 +50,8 @@ class TestCredentials(Selectors):
                         callback("Authentication failed");      
                     }}
                 }}, 2000);
-            ''')
+            '''
+        driver.execute_async_script(script)
         
         alert = driver.switch_to.alert
         assert "Login successful" in alert.text

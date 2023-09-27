@@ -8,10 +8,10 @@ execute_javascript
 ├─ README.md
 ├─ setup
 │  ├─ Setup.py
-│  └─ Setup_ini.py
-├─ some.html
 └─ teststeps
    ├─ test_alert.py
+   ├─ test_change_attribute.py
+   ├─ test_change_style.py
    ├─ test_login_simul_async_js.py
    ├─ test_scrolling.py
    └─ test_suite.py

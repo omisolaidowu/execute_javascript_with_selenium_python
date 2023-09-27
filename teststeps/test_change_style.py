@@ -18,6 +18,7 @@ class TestStyleChange:
         button.disabled = false;
         button.style.backgroundColor = 'green';
         button.style.color = 'white';
+        button.click()
 '''
         
         setting.driver.execute_script(script)

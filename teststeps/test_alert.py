@@ -38,10 +38,11 @@ class TestSimulateAlert:
 
             if (error_message_element) {
                 alert("Email exists error")
+                callback("Email already exists")
             } else {
                 alert("Fresh email, valid")
+                callback("Successful, email valid")
             }
-            callback();
         """
 
         setting.driver.execute_script(script)

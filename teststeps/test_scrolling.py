@@ -30,6 +30,19 @@ class TestScrolling:
 
         setting.tearDown()
 
+    def test_should_scroll_to_image_easy(self):
+        setting.setUp()
+        url = "https://ecommerce-playground.lambdatest.io/"
+        setting.driver.get(url)
+
+        script = """
+                img.scrollIntoView()
+                img.dispatchEvent(new Event('mouseover', { 'bubbles': 'true' }));          
+        """
+        setting.driver.execute_script(script)
+
+        setting.tearDown()
+
 
 
 
