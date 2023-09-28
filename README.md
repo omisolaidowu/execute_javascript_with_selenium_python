@@ -1,8 +1,4 @@
-This test suite demonstrates how to execute JavaScript with Selenium in Python. 
-
-## Code Structure
-```
-execute_javascript
+```execute_javascript
 ├─ .env
 ├─ .gitignore
 ├─ README.md
@@ -16,5 +12,12 @@ execute_javascript
    ├─ test_scrolling.py
    └─ test_suite.py
 ```
+
+
+
+
+
+
+
 ## To run the test run:
 `pytest` via the command line

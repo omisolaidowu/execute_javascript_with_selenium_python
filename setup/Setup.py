@@ -27,6 +27,7 @@ class Setting:
 
             self.driver = webdriver.Remote(command_executor=gridURL, options= options)
         elif EXEC_PLATFORM=='local':
+            
             self.chrome_options = webdriver.ChromeOptions()
             self.chrome_options.add_argument("--headless=new")
             self.driver = webdriver.Chrome(options=self.chrome_options)
