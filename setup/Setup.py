@@ -30,7 +30,7 @@ class Setting:
             
             self.chrome_options = webdriver.ChromeOptions()
             self.chrome_options.add_argument("--headless=new")
-            self.driver = webdriver.Chrome(options=self.chrome_options)
+            self.driver = webdriver.Chrome()
   
     def setUp(self):
         self.driver.implicitly_wait(10)
