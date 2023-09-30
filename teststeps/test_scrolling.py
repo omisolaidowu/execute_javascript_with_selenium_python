@@ -6,8 +6,8 @@ from selenium.webdriver.common.by import By
 setting = Setting()
 
 class TestScrolling:
+    setting.setUp()
     def test_should_scroll_to_image(self):
-        setting.setUp()
         url = "https://ecommerce-playground.lambdatest.io/"
         setting.driver.get(url)
 
@@ -28,14 +28,15 @@ class TestScrolling:
 
         print(f"Current height: {relative_height} px")
 
-        setting.tearDown()
-
     def test_should_scroll_to_image_easy(self):
         setting.setUp()
         url = "https://ecommerce-playground.lambdatest.io/"
         setting.driver.get(url)
 
         script = """
+                const image_alt = "HTC Touch HD";
+                const selector = `img[alt="${image_alt}"]`;
+                const img = document.querySelector(selector);
                 img.scrollIntoView()
                 img.dispatchEvent(new Event('mouseover', { 'bubbles': 'true' }));          
         """

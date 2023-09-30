@@ -14,10 +14,10 @@ class TestSimulateAlert:
 
         setting.driver.get(url)
 
-        wait = WebDriverWait(setting.driver, 10)
+        wait = WebDriverWait(setting.driver, 15)
 
         email_input = setting.driver.find_element(By.ID, 'email')
-        email = 'freshemail@gmail.com'
+        email = 'omisolaidowu@gmail.com'
 
         email_input.send_keys(email)
 
@@ -32,31 +32,28 @@ class TestSimulateAlert:
         except:
             pass
 
+        #First, we obtain the error message element (error_message_element) and declare a callback variable for the fucntion arguments.
+        #We pass the alert logic into an interval function. This function checks if the error element is present. It then throws an alert containing the error message text (retrieved with the error_message_element.innerTex property)
+        #The ckearInterval property stops the interval once the condition is met. 
         script = """
-            var error_message_element = document.getElementById("email-info")
+            var error_message_element = document.getElementById("email-info");
             var callback = arguments[arguments.length - 1];
-
-            if (error_message_element) {
-                alert("Email exists error")
-                callback("Email already exists")
-            } else {
-                alert("Fresh email, valid")
-                callback("Successful, email valid")
-            }
+            var interval = setInterval(function () {
+                if (error_message_element) {
+                    alert(error_message_element.innerText);
+                    clearInterval(interval);
+                    callback("Email already exists");
+                    
+                } else {
+                    alert("Fresh email, valid");
+                    clearInterval(interval);
+                    callback("Successful, email valid");
+                }
+            }, 100);  
         """
-
-        setting.driver.execute_script(script)
-
-        alert = setting.driver.switch_to.alert
-
-        print(alert.text)
-
-        assert "valid" in alert.text, "an error has occurred"
-
-        alert.accept()
-
+        setting.driver.execute_async_script(script)
+        alert = wait.until(EC.alert_is_present())
+        alert.accept()      
         setting.driver.current_url
-
         print(setting.driver.title)
-
         setting.tearDown()

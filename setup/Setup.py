@@ -29,7 +29,7 @@ class Setting:
         elif EXEC_PLATFORM=='local':
             
             self.chrome_options = webdriver.ChromeOptions()
-            self.chrome_options.add_argument("--headless=new")
+            # self.chrome_options.add_argument("--headless=new")
             self.driver = webdriver.Chrome()
   
     def setUp(self):

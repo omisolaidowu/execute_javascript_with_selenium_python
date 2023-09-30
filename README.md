@@ -10,7 +10,6 @@
    ├─ test_change_style.py
    ├─ test_login_simul_async_js.py
    ├─ test_scrolling.py
-   └─ test_suite.py
 ```
 
 
