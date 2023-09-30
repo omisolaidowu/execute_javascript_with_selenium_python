@@ -2,6 +2,7 @@
 ├─ .env
 ├─ .gitignore
 ├─ README.md
+├─ requirements.txt
 ├─ setup
 │  ├─ Setup.py
 └─ teststeps
