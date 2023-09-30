@@ -29,8 +29,8 @@ class Setting:
         elif EXEC_PLATFORM=='local':
             
             self.chrome_options = webdriver.ChromeOptions()
-            # self.chrome_options.add_argument("--headless=new")
-            self.driver = webdriver.Chrome()
+            self.chrome_options.add_argument("--headless=new")
+            self.driver = webdriver.Chrome(options=self.chrome_options)
   
     def setUp(self):
         self.driver.implicitly_wait(10)
