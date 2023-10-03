@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv('.env')
 
-settings = Setting()
+settings = Setting("Login simulation async test")
 driver = settings.driver
 
 

@@ -3,7 +3,7 @@ sys.path.append(sys.path[0] + "/..")
 from setup.Setup import Setting
 from selenium.webdriver.common.by import By
 
-setting = Setting()
+setting = Setting("Scrolling test")
 
 class TestScrolling:
     setting.setUp()

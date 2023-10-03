@@ -6,7 +6,7 @@ sys.path.append(sys.path[0] + "/..")
 
 from setup.Setup import Setting
 
-setting = Setting()
+setting = Setting("Alert simulation async test")
 class TestSimulateAlert:
     def test_should_alert_user_and_fail_if_email_exists(self):
         setting.setUp()
@@ -31,10 +31,7 @@ class TestSimulateAlert:
             print(error_message.text)
         except:
             pass
-
-        #First, we obtain the error message element (error_message_element) and declare a callback variable for the fucntion arguments.
-        #We pass the alert logic into an interval function. This function checks if the error element is present. It then throws an alert containing the error message text (retrieved with the error_message_element.innerTex property)
-        #The ckearInterval property stops the interval once the condition is met. 
+ 
         script = """
             var error_message_element = document.getElementById("email-info");
             var callback = arguments[arguments.length - 1];

@@ -2,8 +2,8 @@ import sys
 sys.path.append(sys.path[0] + "/..")
 from setup.Setup import Setting
 from selenium.webdriver.common.by import By
-setting = Setting()
 
+setting = Setting("Attribute change test")
 driver = setting.driver
 
 class TestChangeElementAttr:

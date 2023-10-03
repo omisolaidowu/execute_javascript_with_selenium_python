@@ -1,7 +1,7 @@
 import sys
 sys.path.append(sys.path[0] + "/..")
 from setup.Setup import Setting
-setting = Setting()
+setting = Setting("Style modification test")
 
 class TestStyleChange:
     def test_should_change_style(self):

@@ -6,7 +6,8 @@ LT_USERNAME = os.getenv("LT_USERNAME")
 LT_ACCESS_KEY = os.getenv("LT_ACCESS_KEY")
 EXEC_PLATFORM = os.getenv('EXEC_PLATFORM')
 class Setting:    
-    def __init__(self):
+    def __init__(self, test_name):
+        self.test_name = test_name
         if EXEC_PLATFORM=='cloud':
             options = webdriver.ChromeOptions()
             options.browser_version = "latest"
@@ -16,7 +17,7 @@ class Setting:
             lt_options["accessKey"] = os.getenv("LT_ACCESS_KEY")
             lt_options["build"] = "JavaScript execution demos"
             lt_options["project"] = "Elements Check Tests"
-            lt_options["name"] = "JavaScript demo"
+            lt_options["name"] = self.test_name
             lt_options["console"] = "error"
             lt_options["w3c"] = True
             lt_options["plugin"] = "python-python"
