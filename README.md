@@ -1,3 +1,8 @@
+This repository is a demo of the execution of JavaScript using Selenium with Python.
+
+There are six use-case demos in all. You can execute test cases locally or on the [LambdaTest](https://www.lambdatest.com/) grid. But prefer the LambdaTest cloud grid for parallel and cross-browser testing. 
+
+## Project Structure
 ```execute_javascript
 ├─ .env
 ├─ .gitignore
@@ -12,12 +17,8 @@
    ├─ test_login_simul_async_js.py
    ├─ test_scrolling.py
 ```
+## How to run the test cases
+Feel free to fork and clone this repo and give it a star with a follow. CD into the project root folder via the terminal and run the pytest command:
 
+```pytest```
 
-
-
-
-
-
-## To run the test run:
-`pytest` via the command line

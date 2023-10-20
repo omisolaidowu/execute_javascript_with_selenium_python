@@ -9,3 +9,5 @@ chains.py
 scroll.py
 try.py
 alert_me.py
+mypy.ini
+pytest.ini

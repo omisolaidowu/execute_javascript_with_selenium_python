@@ -14,6 +14,7 @@ class TestSimulateAlert:
 
         setting.driver.get(url)
 
+
         wait = WebDriverWait(setting.driver, 15)
 
         email_input = setting.driver.find_element(By.ID, 'email')
