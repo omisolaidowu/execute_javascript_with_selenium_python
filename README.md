@@ -18,7 +18,9 @@ There are six use-case demos in all. You can execute test cases locally or on th
    ├─ test_scrolling.py
 ```
 ## How to run the test cases
-Feel free to fork and clone this repo and give it a star with a follow. CD into the project root folder via the terminal and run the pytest command:
-
+Feel free to fork and clone this repo and give it a star with a follow. CD into the project root folder via the terminal and install the requirements:
+```pip install -r requirements.txt```
+ 
+Run the pytest command to execute all test cases:
 ```pytest```
 
