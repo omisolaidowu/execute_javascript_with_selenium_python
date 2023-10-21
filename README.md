@@ -1,6 +1,6 @@
 This repository is a demo of the execution of JavaScript using Selenium with Python.
 
-There are six use-case demos in all. You can execute test cases locally or on the [LambdaTest](https://www.lambdatest.com/) grid. But prefer the LambdaTest cloud grid for parallel and cross-browser testing. 
+There are six use-case demos in all. You can execute test cases locally or on the [LambdaTest](https://www.lambdatest.com/) grid. But prefer the LambdaTest cloud grid for parallel and cross-browser testing functionalities. 
 
 ## Project Structure
 ```execute_javascript
